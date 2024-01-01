@@ -1,4 +1,4 @@
-# Angular Frontend Service Module 🚀
+# Angular Frontend Module 🚀
 This module is the Angular frontend of the system. It is responsible for managing the gateway of the system. 
 
 This repository is part of the [Distributed System Exam](https://www.github.com/Slimani-CE/ds-exam) project.
