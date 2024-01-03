@@ -1,0 +1,155 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Created At</th>
+          <th>Duration</th>
+          <th>Resource Name</th>
+          <th>Reserved By</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let r of reservations">
+          <td>{{r.name}}</td>
+          <td>{{r.createdAt | date:'dd/mm/yyyy HH:MM:SS'}}</td>
+          <td>{{r.duration}}</td>
+          <td>{{r.resource.name}}</td>
+          <td>{{r.madeBy.name}}</td>
+          <td class="d-flex">
+            <button class="dropdown-item link-info" data-bs-toggle="modal" data-bs-target="#reservationDataModal" (click)="focusedReservation = r">
+              View
+            </button>
+            <button class="dropdown-item link-danger" data-bs-toggle="modal" data-bs-target="#reservationRemovalDataModal" (click)="reservationToRemove = r">
+              Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Reservation Data Modal -->
+<div class="modal fade" id="reservationDataModal" tabindex="-1" aria-labelledby="reservationDataModalLabel" aria-hidden="true" *ngIf="focusedReservation">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reservationDataModalLabel">Reservation Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex flex-column gap-3">
+        <div class="row">
+          <div class="col">
+            <label for="reservationIdDataDisplayInput" class="form-label">Reservation Id</label>
+            <input type="text" class="form-control" readonly value="{{focusedReservation.id}}" id="reservationIdDataDisplayInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="reservationNameDataDisplayInput" class="form-label">Name</label>
+            <input type="text" class="form-control" readonly value="{{focusedReservation.name}}" id="reservationNameDataDisplayInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="reservationContextDataDisplayInput" class="form-label">Context</label>
+            <textarea type="text" class="form-control" readonly value="{{focusedReservation.context}}" id="reservationContextDataDisplayInput">
+
+          </textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="reservationCreationDateDataDisplayInput" class="form-label">Creation Date</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.createdAt | date:'dd/mm/yyyy HH:MM:SS'}}" id="reservationCreationDateDataDisplayInput">
+          </div>
+
+          <div class="col">
+            <label for="reservationDurationDataDisplayInput" class="form-label">Duration</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.duration}}" id="reservationDurationDataDisplayInput">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-header">
+        <h5 class="modal-title">Reserved Resource</h5>
+      </div>
+      <div class="modal-body d-flex flex-column gap-3">
+        <div class="row">
+          <div class="col">
+            <label for="resourceIdDataDisplayInput" class="form-label">Resource Id</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.resource.id}}" id="resourceIdDataDisplayInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="resourceNameDataDisplayInput" class="form-label">Name</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.resource.name}}" id="resourceNameDataDisplayInput">
+          </div>
+          <div class="col">
+            <label for="resourceTypeDataDisplayInput" class="form-label">Type</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.resource.type}}" id="resourceTypeDataDisplayInput">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-header">
+        <h5 class="modal-title">Reserved By</h5>
+      </div>
+      <div class="modal-body d-flex flex-column gap-3">
+        <div class="row">
+          <div class="col">
+            <label for="personIdDataDisplayInput" class="form-label">Person Id</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.madeBy.id}}" id="personIdDataDisplayInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="personNameDataDisplayInput" class="form-label">Name</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.madeBy.name}}" id="personNameDataDisplayInput">
+          </div>
+          <div class="col">
+            <label for="personEmailDataDisplayInput" class="form-label">Email</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.madeBy.email}}" id="personEmailDataDisplayInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="personRoleDataDisplayInput" class="form-label">Role</label>
+            <input type="email" class="form-control" readonly value="{{focusedReservation.madeBy.role}}" id="personRoleDataDisplayInput">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reservation Removal Modal -->
+<div class="modal fade" id="reservationRemovalDataModal" tabindex="-1" aria-labelledby="reservationDataModalLabel" aria-hidden="true" *ngIf="reservationToRemove">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reservationRemovalDataModalLabel">Delete Reservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body row gap-3">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteReservation(reservationToRemove)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

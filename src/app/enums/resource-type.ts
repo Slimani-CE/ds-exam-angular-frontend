@@ -1,0 +1,4 @@
+export enum ResourceType {
+  INFO_MATERIAL = "INFO_MATERIAL",
+  VIDEO_AUDIO_MATERIAL = "VIDEO_AUDIO_MATERIAL",
+}

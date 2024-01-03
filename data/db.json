@@ -1,0 +1,99 @@
+{
+  "resources": [
+    {
+      "id": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      "name": "Resource 1",
+      "type": "Type A"
+    },
+    {
+      "id": "ceb6f9c7-6a6d-42d0-9ef5-97b924da3e5f",
+      "name": "Resource 2",
+      "type": "Type B"
+    },
+    {
+      "id": "f29a53d7-cbde-4dc7-a5b5-977230398f5e",
+      "name": "Resource 3",
+      "type": "Type C"
+    },
+    {
+      "id": "890063e5-9a1e-4c60-8024-02e0e58a37bd",
+      "name": "Resource 4",
+      "type": "Type A"
+    },
+    {
+      "id": "ee858234-bf58-4d8f-b7be-89293c33a2f0",
+      "name": "Resource 5",
+      "type": "Type B"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      "name": "Reservation 1",
+      "context": "Context A",
+      "createdAt": "2023-12-31T18:30:00",
+      "duration": "PT2H",
+      "resource": {
+        "id": "a0eebc99-9c0b-4ef8-hhhh-6bb9bd380a11",
+        "name": "Resource 1",
+        "type": "Type A"
+      },
+      "madeBy": {
+        "id": "a0eebc99-9c0b-4ef8-dddd-6bb9bd380a11",
+        "name": "User 1",
+        "email": "user1@mail.com",
+        "role": "ADMIN"
+      }
+    },
+    {
+      "id": "ceb6f9c7-6a6d-42d0-9ef5-97b924da3e5f",
+      "name": "Reservation 2",
+      "context": "Context B",
+      "createdAt": "2023-12-31T18:30:00",
+      "duration": "PT2H",
+      "resource": {
+        "id": "ceb6f9c7-6a6d-42d0-ffff-97b924da3e5f",
+        "name": "Resource 2",
+        "type": "Type B"
+      },
+      "madeBy": {
+        "id": "ceb6f9c7-6a6d-42d0-jjjj-97b924da3e5f",
+        "name": "User 2",
+        "email": "user2@mail.com",
+        "role": "USER"
+      }
+    },
+    {
+      "id": "f29a53d7-cbde-4dc7-a5b5-977230398f5e",
+      "name": "Reservation 3",
+      "context": "Context C",
+      "createdAt": "2023-12-31T18:30:00",
+      "duration": "PT2H",
+      "resource": {
+        "id": "f29a53d7-cbde-4dc7-aaaa-977230398f5e",
+        "name": "Resource 3",
+        "type": "Type C"
+      },
+      "madeBy": {
+        "id": "ceb6f9c7-6a6d-42d0-5555-97b924da3e5f",
+        "name": "User 2",
+        "email": "user1@mail.com",
+        "role": "ADMIN"
+      }
+    }
+  ],
+  "persons": [
+    {
+      "id": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      "name": "User 1",
+      "email": "user1@mail.com",
+      "role": "USER"
+    },
+    {
+      "id": "ceb6f9c7-6a6d-42d0-9ef5-97b924da3e5f",
+      "name": "User 2",
+      "email": "user2@mail.com",
+      "role": "ADMIN"
+    }
+  ]
+}
